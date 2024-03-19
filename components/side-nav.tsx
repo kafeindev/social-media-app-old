@@ -7,7 +7,7 @@ import { Logo } from "@/app/icons";
 import { PAGES } from "@/lib/constants";
 import { Page } from "@/lib/definitions";
 import { cn } from "@/lib/utils";
-import ProfileMini from "./account/profile-mini";
+// import ProfileMini from "./account/profile-mini";
 
 export default function SideNav() {
   const pathname = usePathname();
@@ -38,7 +38,7 @@ export default function SideNav() {
         </div>
       </div>
       <div className="flex flex-col items-center gap-2">
-        <ProfileMini />
+        {/* <ProfileMini /> */}
         <h1 className="text-xs text-card-foreground/50">© 2024 Kafein LLC</h1>
       </div>
     </div>
