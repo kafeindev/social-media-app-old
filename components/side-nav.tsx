@@ -7,26 +7,29 @@ import { Logo } from "@/app/icons";
 import { PAGES } from "@/lib/constants";
 import { Page } from "@/lib/definitions";
 import { cn } from "@/lib/utils";
-// import ProfileMini from "./account/profile-mini";
 
-export default function SideNav() {
+export default function SideNav({
+  profileMini,
+}: {
+  profileMini: React.ReactNode;
+}) {
   const pathname = usePathname();
 
   return (
-    <div className="flex min-h-screen min-w-64 flex-col justify-between border border-r bg-card text-card-foreground">
+    <div className="fixed flex min-h-screen min-w-64 flex-col justify-between border-r bg-card text-card-foreground">
       <div className="m-2 flex h-full flex-col items-center">
         <a
           href="https://github.com/KafeinDev/social-media-app"
           target="_blank"
-          className="flex w-full flex-row items-center gap-3 rounded-lg p-2 hover:bg-secondary/10"
+          className="flex w-full flex-row items-center gap-3 rounded-lg p-2 transition-colors duration-200 hover:bg-secondary/10"
         >
-          <span className="w-12 text-[#1FD8A4]">{Logo}</span>
+          <span className="w-12 text-[#bb99f6]">{Logo}</span>
           <div className="flex flex-col pb-2 font-semibold">
             <h1>Social</h1>
             <h1>Media App</h1>
           </div>
         </a>
-        <hr className="my-2 h-px w-full text-border" />
+        <hr className="my-2 h-px w-full border-border" />
         <div className="flex w-full flex-col items-center justify-center gap-2">
           {Object.entries(PAGES).map(([key, page]) => (
             <NavLink
@@ -37,10 +40,7 @@ export default function SideNav() {
           ))}
         </div>
       </div>
-      <div className="flex flex-col items-center gap-2">
-        {/* <ProfileMini /> */}
-        <h1 className="text-xs text-card-foreground/50">© 2024 Kafein LLC</h1>
-      </div>
+      <div className="flex flex-col items-center pb-2">{profileMini}</div>
     </div>
   );
 }
@@ -54,16 +54,22 @@ export function NavLink({
     <Link
       href={page.href}
       className={cn(
-        "flex h-12 w-full items-center gap-5 rounded-lg px-3 text-lg transition-colors duration-200 hover:bg-secondary/20",
+        "flex h-11 w-full items-center gap-5 rounded-lg px-3 text-lg text-muted-foreground transition-colors duration-200 hover:bg-secondary/30",
         {
-          "bg-secondary/20": isSelected,
+          "bg-secondary/30": isSelected,
         }
       )}
     >
-      <span className="flex w-7 items-center justify-center font-semibold">
+      <span
+        className={cn("flex w-7 items-center justify-center font-semibold", {
+          "font-bold text-foreground": isSelected,
+        })}
+      >
         {icon}
       </span>
-      <h1 className={cn({ "font-bold": isSelected })}>{page.title}</h1>
+      <h1 className={cn({ "font-bold text-foreground": isSelected })}>
+        {page.title}
+      </h1>
     </Link>
   );
 }
