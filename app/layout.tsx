@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <main className="flex flex-row">
           <SideNav profileMini={<ProfileMini />} />
-          <div className="ml-64">{children}</div>
+          {children}
         </main>
       </body>
     </html>
