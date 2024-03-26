@@ -1,5 +1,6 @@
-import { cn } from "@/lib/utils";
 import React from "react";
+
+import { cn } from "@/lib/utils";
 
 const Root = React.forwardRef<
   HTMLDivElement,
@@ -58,7 +59,7 @@ const Overlay = React.forwardRef<
       <div
         aria-modal="true"
         aria-hidden={!isOpen}
-        className="fixed inset-0 z-50 bg-black opacity-60"
+        className="fixed inset-0 z-50 bg-black opacity-50"
         onClick={onClose}
         ref={ref}
         {...props}
@@ -66,4 +67,4 @@ const Overlay = React.forwardRef<
     )
 );
 
-export { Root, Trigger, Content, Overlay };
+export { Content, Overlay, Root, Trigger };
