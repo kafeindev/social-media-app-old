@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: var(--color-mauve-3);
+    --background-alt: var(--color-mauve-5);
+    --foreground: var(--color-mauve-12);
+
+    --muted: var(--color-mauve-4);
+    --muted-foreground: var(--color-mauve-11);
+
+    --popover: var(--color-mauve-5);
+    --popover-foreground: var(--color-mauve-12);
+
+    --card: var(--color-mauve-6);
+    --card-foreground: var(--color-mauve-12);
+
+    --primary: var(--color-purple-10);
+    --primary-foreground: var(--color-mauve-12);
+
+    --secondary: var(--color-mauve-8);
+    --secondary-foreground: var(--color-mauve-12);
+
+    --accent: var(--color-mauve-7);
+    --accent-foreground: var(--color-mauve-12);
+
+    --destructive: 360 73.92% 58.7%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: var(--color-mauve-3);
+    --border-alt: var(--color-mauve-4);
+    --ring: var(--color-mauve-3);
+    --input: var(--color-mauve-3);
+
+    --color-mauve-1: 270 6% 7%;
+    --color-mauve-2: 270 4% 10%;
+    --color-mauve-3: 260 4% 14%;
+    --color-mauve-4: 270 5% 17%;
+    --color-mauve-5: 264 5% 20%;
+    --color-mauve-6: 270 5% 24%;
+    --color-mauve-7: 257 5% 29%;
+    --color-mauve-8: 258 5% 39%;
+    --color-mauve-9: 251 5% 45%;
+    --color-mauve-10: 251 4% 50%;
+    --color-mauve-11: 258 7% 72%;
+    --color-mauve-12: 240 6% 94%;
+
+    --color-purple-1: 282 23% 9%;
+    --color-purple-2: 279 25% 11%;
+    --color-purple-3: 279 36% 17%;
+    --color-purple-4: 277 39% 22%;
+    --color-purple-5: 276 38% 26%;
+    --color-purple-6: 275 35% 31%;
+    --color-purple-7: 274 33% 38%;
+    --color-purple-8: 273 33% 50%;
+    --color-purple-9: 272 51% 54%;
+    --color-purple-10: 272 55% 59%;
+    --color-purple-11: 272 100% 81%;
+    --color-purple-12: 275 77% 92%;
+
+    --color-iris-1: 240 22% 10%;
+    --color-iris-2: 244 25% 12%;
+    --color-iris-3: 237 38% 20%;
+    --color-iris-4: 236 45% 27%;
+    --color-iris-5: 237 41% 32%;
+    --color-iris-6: 239 36% 37%;
+    --color-iris-7: 240 34% 44%;
+    --color-iris-8: 241 36% 52%;
+    --color-iris-9: 240 60% 60%;
+    --color-iris-10: 242 64% 64%;
+    --color-iris-11: 246 100% 83%;
+    --color-iris-12: 242 94% 94%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  main {
+    @apply min-h-screen;
+  }
+}
