@@ -1,23 +1,25 @@
-import * as Icons from "@/app/icons";
+import { HiBell, HiHome, HiOutlineBell, HiOutlineHome } from "react-icons/hi2";
+import { IoSearch, IoSearchOutline } from "react-icons/io5";
+
 import { Page } from "./definitions";
 
 export const PAGES: { [key: string]: Page } = {
   home: {
     title: "Home",
     href: "/",
-    iconOutline: Icons.HomeIconOutline,
-    iconSolid: Icons.HomeIconSolid,
+    icon: HiHome,
+    iconOutline: HiOutlineHome,
   },
   explore: {
     title: "Explore",
     href: "/explore",
-    iconOutline: Icons.ExploreIconOutline,
-    iconSolid: Icons.ExploreIconSolid,
+    icon: IoSearch,
+    iconOutline: IoSearchOutline,
   },
   notifications: {
     title: "Notifications",
     href: "/notifications",
-    iconOutline: Icons.BellIconOutline,
-    iconSolid: Icons.BellIconSolid,
+    icon: HiBell,
+    iconOutline: HiOutlineBell,
   },
 };

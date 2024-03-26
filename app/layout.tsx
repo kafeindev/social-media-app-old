@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import "./globals.css";
-import SideNav from "@/components/side-nav";
 import ProfileMini from "@/components/profile-mini";
+import SideNav from "@/components/side-nav";
+
+import "@/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <main className="flex flex-row">
-          <SideNav profileMini={<ProfileMini />} />
+          <SideNav children={<ProfileMini />} />
           {children}
         </main>
       </body>
