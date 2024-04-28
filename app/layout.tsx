@@ -1,12 +1,46 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 
-import ProfileMini from "@/components/profile-mini";
-import SideNav from "@/components/side-nav";
+import { MainSideBar } from "@/components/pages/main/side-bar";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 import "@/styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import { FriendsProvider } from "@/contexts/friends-context";
+import { PreviousURLProvider } from "@/contexts/previous-url-context";
+import { SocketProvider } from "@/contexts/socket-context";
+import { UserProvider } from "@/contexts/user-context";
+
+export default async function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={GeistSans.variable}>
+      <body>
+        <UserProvider>
+          <FriendsProvider>
+            <SocketProvider>
+              <PreviousURLProvider>
+                <TooltipProvider
+                  delayDuration={50}
+                  skipDelayDuration={0}
+                  disableHoverableContent
+                >
+                  <main className="flex">
+                    <MainSideBar />
+                    {children}
+                  </main>
+                </TooltipProvider>
+              </PreviousURLProvider>
+            </SocketProvider>
+          </FriendsProvider>
+        </UserProvider>
+      </body>
+    </html>
+  );
+}
 
 export const metadata: Metadata = {
   title: "Social Media",
@@ -15,20 +49,3 @@ export const metadata: Metadata = {
     icon: "/logo.svg",
   },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        <main className="flex flex-row">
-          <SideNav children={<ProfileMini />} />
-          {children}
-        </main>
-      </body>
-    </html>
-  );
-}

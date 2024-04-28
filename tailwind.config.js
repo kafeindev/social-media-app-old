@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 const config = {
   darkMode: ["class"],
   content: ["./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}"],
@@ -10,58 +12,54 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-geist-sans)", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         border: {
           DEFAULT: "hsl(var(--border))",
           alt: "hsl(var(--border-alt))",
         },
-        input: "hsl(var(--input))",
+        input: {
+          DEFAULT: "hsl(var(--input))",
+          alt: "hsl(var(--input-alt))",
+        },
         ring: "hsl(var(--ring))",
         background: {
           DEFAULT: "hsl(var(--background))",
           alt: "hsl(var(--background-alt))",
         },
-        foreground: "hsl(var(--foreground))",
+        foreground: {
+          DEFAULT: "hsl(var(--foreground))",
+          alt: "hsl(var(--foreground-alt))",
+          "alt-2": "hsl(var(--foreground-alt-2))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          alt: "hsl(var(--primary-alt))",
+          "alt-2": "hsl(var(--primary-alt-2))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          alt: "hsl(var(--secondary-alt))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          alt: "hsl(var(--destructive-alt))",
         },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        muted: "hsl(var(--muted))",
+        accent: "hsl(var(--accent))",
+        popover: "hsl(var(--popover))",
+        card: "hsl(var(--card))",
       },
       keyframes: {
-        contentShow: {
-          from: {
-            opacity: "0",
-            transform: "translate(-50%, -48%) scale(0.96)",
-          },
-          to: { opacity: "1", transform: "translate(-50%, -50%) scale(1)" },
+        slideRight: {
+          from: { transform: "translateX(-100%)" },
+          to: { transform: "translateX(0px)" },
         },
       },
       animation: {
-        contentShow: "contentShow 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+        slideRight: "slideRight 0.5s linear",
       },
     },
   },
